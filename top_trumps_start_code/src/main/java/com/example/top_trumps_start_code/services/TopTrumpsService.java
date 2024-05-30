@@ -1,7 +1,9 @@
 package com.example.top_trumps_start_code.services;
 
 import com.example.top_trumps_start_code.models.Card;
+import com.example.top_trumps_start_code.models.Rank;
 import com.example.top_trumps_start_code.models.Reply;
+import com.example.top_trumps_start_code.models.Suit;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,10 +21,20 @@ public class TopTrumpsService {
 
     public Reply startNewGame(){
         this.cards = new ArrayList<>();
-        cards.add(card1);
-        cards.add(card2);
+        Card newCard;
+//        this.card1 = new Card(Rank.TWO, Suit.CLUBS);
+//        this.card2 = new Card(Rank.TWO, Suit.DIAMONDS);
+//        cards.add(card1);
+//        cards.add(card2);
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()){
+                newCard = new Card(rank, suit);
+                cards.add(newCard);
+            }
+        }
+        this.card1 = cards.remove(cards.size()-1);
+        this.card2 = cards.remove(cards.size()-2);
         return new Reply("Game has started");
-
     }
 
     public Reply checkWinner(Card card1, Card card2) {

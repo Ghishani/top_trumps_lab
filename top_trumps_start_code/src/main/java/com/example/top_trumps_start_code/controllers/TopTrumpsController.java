@@ -32,9 +32,9 @@ public class TopTrumpsController {
         if(topTrumpsService.getCards() == null) {
             reply = new Reply("Game has not been started");
         } else {
-            reply = new Reply("Game in progress");
+            reply = topTrumpsService.checkWinner(topTrumpsService.getCard1(), topTrumpsService.getCard2());
         }
         return new ResponseEntity<>(reply,HttpStatus.OK);
     }
-    }
+}
 
