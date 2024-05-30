@@ -1,25 +1,19 @@
 package com.example.top_trumps_start_code.models;
 
+import java.util.ArrayList;
+
 public class Reply {
 
-    private Card pickedCard;
     private String message;
 
-    public Reply(Card pickedCard, String message){
-        this.pickedCard = pickedCard;
+
+    public Reply(String message) {
         this.message = message;
-    }
-
-    public Reply(){
 
     }
 
-    public Card getPickedCard() {
-        return pickedCard;
-    }
+    public Reply() {
 
-    public void setPickedCard(Card pickedCard) {
-        this.pickedCard = pickedCard;
     }
 
     public String getMessage() {
